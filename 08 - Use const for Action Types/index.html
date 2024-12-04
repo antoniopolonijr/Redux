@@ -17,17 +17,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/8.1.1/react-redux.min.js"></script>
 
     <script type="text/babel">
+      const LOGIN = "LOGIN";
+      const LOGOUT = "LOGOUT";
+
       const defaultState = {
         authenticated: false,
       };
 
       const authReducer = (state = defaultState, action) => {
         switch (action.type) {
-          case "LOGIN":
+          case LOGIN:
             return {
               authenticated: true,
             };
-          case "LOGOUT":
+          case LOGOUT:
             return {
               authenticated: false,
             };
@@ -41,13 +44,13 @@
 
       const loginUser = () => {
         return {
-          type: "LOGIN",
+          type: LOGIN,
         };
       };
 
       const logoutUser = () => {
         return {
-          type: "LOGOUT",
+          type: LOGOUT,
         };
       };
     </script>
