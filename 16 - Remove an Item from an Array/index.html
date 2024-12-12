@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redux</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+    <!-- Redux and React-Redux -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/8.1.1/react-redux.min.js"></script>
+
+    <script type="text/babel">
+      const immutableReducer = (state = [0, 1, 2, 3, 4, 5], action) => {
+        switch (action.type) {
+          case "REMOVE_ITEM":
+            // Don't mutate state here or the tests will fail
+            return;
+          default:
+            return state;
+        }
+      };
+
+      const removeItem = (index) => {
+        return {
+          type: "REMOVE_ITEM",
+          index,
+        };
+      };
+
+      const store = Redux.createStore(immutableReducer);
+    </script>
+    <!-- Remove an Item from an Array
+
+Time to practice removing items from an array. The spread operator can be used here as well. Other useful JavaScript methods include slice() and concat().
+
+The reducer and action creator were modified to remove an item from an array based on the index of the item. Finish writing the reducer so a new state array is returned with the item at the specific index removed. -->
+  </body>
+</html>
